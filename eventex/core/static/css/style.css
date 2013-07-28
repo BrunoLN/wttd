@@ -14,22 +14,13 @@ html, body {
 }
 
 /* Set the fixed height of the footer here */
-#push,
-#footer {
+#push, #footer {
     height: 60px;
 }
-#footer {
-    background-color: #f5f5f5;
-}
 
-/* Lastly, apply responsive CSS fixes as necessary */
-@media (max-width: 767px) {
-    #footer {
-        margin-left: -20px;
-        margin-right: -20px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
+#footer {
+    text-align: center;
+    background-color: #f5f5f5;
 }
 
 #wrap > .container {
@@ -39,21 +30,13 @@ html, body {
 .container .credit {
     margin: 20px 0;
 }
-code {
-    font-size: 80%;
+
+.logo-header {
+  text-align: center;
+  background-color: transparent;
 }
 
-.page-header{padding-bottom:-0.25em;margin:1.5em 0 2.25em;border-bottom:1px solid #eee}
-.page-header h1{display:block;line-height:1.5em}
-.published_date{font-size:0.935em;color:gray}
-
-@media screen and (min-width: 900px){
-    .carousel{width:940px;margin-left:auto;margin-right:auto}
-    .span12 .page-header,#disqus_thread,.span12
-    article{
-        width:700px;
-        font-size:1.2100000000000002em;
-        line-height:1.7999999999999998em;
-        margin:auto
-    }
+.content {
+  text-align: center;
+  background-color: transparent;
 }
