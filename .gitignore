@@ -6,6 +6,7 @@ local
 man
 share
 Scripts
+.idea
 .Python
 .ropeproject
 *.pyc
