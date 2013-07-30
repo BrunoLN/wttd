@@ -27,3 +27,9 @@ class DetailTest(TestCase):
     def test_html(self):
         'Check if subscription data was rendered.'
         self.assertContains(self.resp, 'Bruno Nascimento')
+
+
+class DetailNotFound(TestCase):
+    def test_not_found(self):
+        response = self.client.get('/inscricao/0/')
+        self.assertEqual(404, response.status_code)

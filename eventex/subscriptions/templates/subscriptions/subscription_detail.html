@@ -1,9 +1,19 @@
 {% extends 'core/base.html' %}
 
 {% block page_content %}
-<div class="row">
-    <div class="span12">
-
+    <div class="row">
+        <div class="span12">
+            <p>Parabéns {{ subscription.name }}</p>
+            <p>sua inscrição foi realizada em
+                {{ subscription.created_at|date:"d/m/Y" }}.
+            </p>
+            <p>Em breve, entraremos em contato pelo
+            {% if subscription.phone %}
+                telefone {{ subscription.phone }}
+            {% else %}
+                e-mail {{ subscription.email }}
+            {% endif %}
+            </p>
+        </div>
     </div>
-</div>
 {% endblock page_content%}

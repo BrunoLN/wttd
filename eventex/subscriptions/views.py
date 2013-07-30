@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from eventex.subscriptions.forms import SubscriptionForm
 from eventex.subscriptions.models import Subscription
 
@@ -25,6 +26,6 @@ def create(request):
     return HttpResponseRedirect('/inscricao/%d/' % obj.pk)
 
 def detail(request, pk):
-    subscription = Subscription.objects.get(pk=pk)
+    subscription = get_object_or_404(Subscription, pk=pk)
     return render(request, 'subscriptions/subscription_detail.html',
         {'subscription': subscription})
