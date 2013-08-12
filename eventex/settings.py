@@ -1,4 +1,5 @@
 # Django settings for eventex project.
+# coding: utf-8
 import os
 import dj_database_url
 from unipath import Path
@@ -156,3 +157,8 @@ LOGGING = {
         },
     }
 }
+
+# Usar o South para preparar o banco nos testes?
+# True: Sim. (default)
+# False: Não! Use o Syncdb
+SOUTH_TESTS_MIGRATE = False

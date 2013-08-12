@@ -2,7 +2,7 @@
 from django.test import TestCase
 from django.db import IntegrityError
 from datetime import datetime
-from eventex.subscriptions.models import  Subscription
+from eventex.subscriptions.models import Subscription
 
 
 class SubscriptionTest(TestCase):
@@ -11,8 +11,7 @@ class SubscriptionTest(TestCase):
             name='Bruno Nascimento',
             cpf='12345678901',
             email='brunolnascimento@gmail.com',
-            phone='41-99305512'
-        )
+            phone='41-99305512')
 
     def test_create(self):
         'Subscription must have name, cpf, email, phone'
@@ -27,23 +26,31 @@ class SubscriptionTest(TestCase):
     def test_unicode(self):
         self.assertEqual(u'Bruno Nascimento', unicode(self.obj))
 
+    def test_paid_default_value_is_False(self):
+        'By default paid must be False.'
+        self.assertEqual(False, self.obj.paid)
+
 
 class SubscriptionUniqueTest(TestCase):
     def setUp(self):
         # Create a first entry to force the colision
-        Subscription.objects.create(name='Bruno Nascimento', cpf='12345678901',
-            email='brunolnascimento@gmail.com',phone='41-99305512')
-
+        Subscription.objects.create(name='Bruno Nascimento',
+                                    cpf='12345678901',
+                                    email='brunolnascimento@gmail.com',
+                                    phone='41-99305512')
 
     def test_cpf_unique(self):
         'CPF must be unique'
-        s = Subscription(name='Bruno Nascimento', cpf='12345678901',
-            email='Outro@email.com',phone='41-99305512')
+        s = Subscription(name='Bruno Nascimento',
+                         cpf='12345678901',
+                         email='Outro@email.com',
+                         phone='41-99305512')
         self.assertRaises(IntegrityError, s.save)
 
     def test_email_unique(self):
         'Email must be unique'
-        s = Subscription(name='Bruno Nascimento', cpf='12345678902',
-            email='brunolnascimento@gmail.com',phone='41-99305512')
+        s = Subscription(name='Bruno Nascimento',
+                         cpf='12345678902',
+                         email='brunolnascimento@gmail.com',
+                         phone='41-99305512')
         self.assertRaises(IntegrityError, s.save)
-
