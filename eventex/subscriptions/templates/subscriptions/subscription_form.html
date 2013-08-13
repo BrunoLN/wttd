@@ -3,31 +3,45 @@
 {% block page_content %}
 <div class="row">
     <div class="span12">
-            <h1>Formulário de inscrição</h1>
-            <form action="." method="POST">
-                {% csrf_token %}
-                <p>
-                    <label for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
-                    {{ form.name }}
-                    {{ form.name.errors }}
-                </p>
-                <p>
-                    <label for="{{ form.cpf.id_for_label }}">{{ form.cpf.label }}:</label>
-                    {{ form.cpf }}
-                    {{ form.cpf.errors }}
-                </p>
-                <p>
-                    <label for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
-                    {{ form.email }}
-                    {{ form.email.errors }}
-                </p>
-                <p>
-                    <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}:</label>
-                    {{ form.phone}}
-                    {{ form.phone.errors }}
-                </p>
-                <input type="submit" value="Enviar!" class="button" >
-            </form>
+        <form class="form-horizontal" action="." method="POST">
+            {% csrf_token %}
+            <fieldset>
+                <legend>Formulário de Inscrição</legend>
+                <div class="control-group">
+                    <label class="control-label" for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
+                    <div class="controls">
+                        {{ form.name }}
+                        {{ form.name.errors }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="{{ form.cpf.id_for_label }}">{{ form.cpf.label }}:</label>
+                    <div class="controls">
+                        {{ form.cpf }}
+                        {{ form.cpf.errors }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="{{ form.email.id_for_label }}">{{ form.email.label }}:</label>
+                    <div class="controls">
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="{{ form.phone.id_for_label }}">{{ form.phone.label }}:</label>
+                    <div class="controls">
+                        {{ form.phone}}
+                        {{ form.phone.errors }}
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" value="Enviar!" class="btn btn-large btn-primary" >
+                    </div>
+                </div>
+            </fieldset
+        </form>
     </div>
 </div>
 {% endblock page_content%}
