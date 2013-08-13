@@ -3,7 +3,6 @@
 {% block page_content %}
 <div class="row">
     <div class="span12">
-        <div class="subscribe-form">
             <h1>Formulário de inscrição</h1>
             <form action="." method="POST">
                 {% csrf_token %}
@@ -29,7 +28,6 @@
                 </p>
                 <input type="submit" value="Enviar!" class="button" >
             </form>
-        </div>
     </div>
 </div>
 {% endblock page_content%}
