@@ -20,3 +20,11 @@ class SubscriptionForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(SubscriptionForm, self).__init__(*args, **kwargs)
         self.fields['cpf'].validators.append(CPFValidator)
+
+    def clean_name(self):
+        name = self.cleaned_data['name']
+        words = name.split()
+        for index, word in enumerate(words):
+            words[index] = word.capitalize()
+        capitalized_name = ' '.join(words)
+        return capitalized_name
