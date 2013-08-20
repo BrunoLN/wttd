@@ -7,6 +7,7 @@
             {% csrf_token %}
             <fieldset>
                 <legend>Formulário de Inscrição</legend>
+                {{ form.non_field_errors }}
                 <div class="control-group">
                     <label class="control-label" for="{{ form.name.id_for_label }}">{{ form.name.label }}:</label>
                     <div class="controls">
